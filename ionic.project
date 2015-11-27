@@ -1,0 +1,11 @@
+{
+  "name": "Share.A",
+  "app_id": "c28e6253",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
+}

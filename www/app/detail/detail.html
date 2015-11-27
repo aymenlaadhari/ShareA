@@ -1,0 +1,23 @@
+<ion-navbar *navbar>
+  <ion-title>{{share.category.title}}</ion-title>
+  <ion-nav-items secondary>
+    <button (click)="shareLink()"><icon share></icon></button>
+  </ion-nav-items>
+</ion-navbar>
+
+<ion-content padding>
+  <h2>{{share.title}}</h2>
+  <h4>{{share.owner.name}} {{with(namesFrom(share.shareWith))}}</h4>
+  <p *ng-if="share.content">
+    {{share.content}}<br><br>
+  </p>
+  <p>
+    {{share.timeFrom}} - {{share.timeUntil}}<br>
+    {{share.placeFrom}} - {{share.placeTo}}<br>
+  </p>
+
+  <button secondary block large *ng-if="!participating()" (click)="participate()">
+    <icon person-add></icon>
+    Teilnehmen
+  </button>
+</ion-content>

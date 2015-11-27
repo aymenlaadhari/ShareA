@@ -1,0 +1,41 @@
+<ion-toolbar>
+  <ion-title>Share.A</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-title>
+    <ion-segment [(ng-model)]="sharesShowing">
+      <ion-segment-button value="all">
+        Alle
+      </ion-segment-button>
+      <ion-segment-button value="mine">
+        Meine
+      </ion-segment-button>
+    </ion-segment>
+  </ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <div *ng-for="#category of categories">
+    <ion-card bg [class]="category._id" *ng-if="filteredShares(category._id, sharesShowing).length > 0">
+      <div class="img-cropped">
+        <img [src]="category.imgSrc">
+      </div>
+      <ion-card-header>{{category.title}}</ion-card-header>
+      <button ion-item *ng-for="#share of filteredShares(category._id, sharesShowing)" (click)="showDetail(share)">
+        <ion-avatar item-left>
+          <icon large [class]="share.icon"></icon>
+        </ion-avatar>
+        <h2>{{share.title}} ({{share.owner.name}})</h2>
+        <p>
+          {{share.timeFrom}} mit {{namesFrom(share.shareWith)}}
+        </p>
+      </button>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<button fab fab-right fab-bottom (click)="addShare()">
+  <icon add></icon>
+</button>
