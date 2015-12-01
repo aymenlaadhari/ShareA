@@ -21,7 +21,7 @@ export class DataInit {
       window.PouchDB = PouchDB;
       console.log('replicating');
 
-      let remoteDB: string = 'https://' +
+       let remoteDB: string = 'https://' +
                              '0c63a633-7702-49d4-a122-c063734cc194-bluemix' +
                              ':' +
                              '326819ff6efadaa99bb0cc4ec1e458a73850decb9e4946c0dfa2eb1ea26b92ba' +
