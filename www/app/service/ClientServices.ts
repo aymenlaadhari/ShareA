@@ -3,7 +3,7 @@
  */
 (function(){
     var dbTest = new PouchDB('test');
-    var remoteCouchTest = 'https://035e0137-413b-4d3a-8273-9b6945dc3206-bluemix:f21458e3f0f6d1c33e30ccc93ec40c5658bf042effe24f818f38d8847f964efa@035e0137-413b-4d3a-8273-9b6945dc3206-bluemix.cloudant.com/sample_nosql_db';
+    var remoteCouchTest = 'https://0c63a633-7702-49d4-a122-c063734cc194-bluemix:326819ff6efadaa99bb0cc4ec1e458a73850decb9e4946c0dfa2eb1ea26b92ba@0c63a633-7702-49d4-a122-c063734cc194-bluemix.cloudant.com/data_test';
 
 
     db.changes({
