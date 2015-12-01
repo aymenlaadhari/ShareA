@@ -31,11 +31,20 @@
           {{share.timeFrom}} mit {{namesFrom(share.shareWith)}}
         </p>
       </button>
+      <div class="text-center">
+        <button >
+          <icon ion-ios-arrow-down></icon>
+        </button>
+      <button (click)="addShare()">
+        <icon add></icon>
+      </button>
+      </div>
+
     </ion-card>
   </div>
 
 </ion-content>
 
-<button fab fab-right fab-bottom (click)="addShare()">
+<button fab fab-right fab-bottom (click)="addStore()">
   <icon add></icon>
 </button>

@@ -4,6 +4,7 @@ import {DataService} from './service/data';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {LoginService} from './service/login';
 import {DataInit} from './service/dataInit';
+import {First} from './first/first';
 
 @App({
   template: '<ion-nav [root]="root"></ion-nav><ion-overlay></ion-overlay>',
@@ -18,7 +19,7 @@ export class ShareA {
 
   constructor(platform: Platform) {
     this.platform = platform;
-    this.root = Login;
+    this.root = First;
 
     this.initializeData();
     this.initializeApp();

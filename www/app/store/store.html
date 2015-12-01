@@ -1,61 +1,89 @@
 <ion-navbar *navbar>
-  <ion-title>Share.Store</ion-title>
+  <ion-title>Share.Store </ion-title>
+
 </ion-navbar>
-
 <ion-nav #content-ref [root]="rootPage"></ion-nav>
+<ion-content >
+<h5>Wahlen Sie Ihren Interess</h5> <button fab fab-right fab-top>
+  <icon add></icon>
+</button>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+           <h2>Taglich</h2>
+    </ion-card-header>
+          <ion-card-content>
+                <img src="img/ic_directions_run_black_48dp_2x.png">
+                  <ion-checkbox> </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+           <h2>Taglich</h2>
+    </ion-card-header>
+          <ion-card-content>
+                <img src="img/ic_directions_run_black_48dp_2x.png">
+                  <ion-checkbox  > </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
 
-<ion-content padding>
-  <ion-row>
-    <ion-col>
-      <ion-card (click)="showSusbs()">
-        <ion-card-header>
-   Taglich
- </ion-card-header>
-        <ion-card-content>
+           <h2>Taglich</h2>
 
-            <img src="img/ic_today_black_48dp_2x.png">
+    </ion-card-header>
+          <ion-card-content>
+                <img src="img/ic_directions_run_black_48dp_2x.png">
+                  <ion-checkbox  > </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
 
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card (click)="showSusbs()">
-        <ion-card-header>
-   Fahren
- </ion-card-header>
-        <ion-card-content>
+           <h2>Taglich</h2>
 
-      <img src="img/taxi.jpg">
+    </ion-card-header>
+          <ion-card-content>
+                <img src="img/ic_directions_run_black_48dp_2x.png">
+                  <ion-checkbox > </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
 
-  </ion-card-content>
-</ion-card>
-</ion-col>
-    <ion-col><ion-card (click)="showSusbs()">
-      <ion-card-header>
-   Essen
- </ion-card-header>
-      <ion-card-content>
-      <img src="img/Content_FoodDrink.jpg">
-    </ion-card-content></ion-card></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><ion-card (click)="showSusbs()">
-      <ion-card-header>
-   Sache
- </ion-card-header><ion-card-content>
-      <img src="img/ic_view_quilt_black_48dp_2x.png">
-    </ion-card-content></ion-card></ion-col>
-    <ion-col><ion-card (click)="showSusbs()">
-      <ion-card-header>
-   Entertainement
- </ion-card-header><ion-card-content>
-      <img src="img/appicon.png">
-    </ion-card-content></ion-card></ion-col>
-    <ion-col><ion-card (click)="showAction()">
-      <ion-card-header>
-   Sport
- </ion-card-header><ion-card-content>
-      <img src="img/ic_directions_run_black_48dp_2x.png">
-    </ion-card-content></ion-card></ion-col>
-  </ion-row>
+           <h2>Taglich</h2>
+
+    </ion-card-header>
+          <ion-card-content>
+                <img src="img/ic_directions_run_black_48dp_2x.png">
+                  <ion-checkbox > </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+
+           <h2>Taglich</h2>
+
+    </ion-card-header>
+          <ion-card-content>
+                <img src="img/ic_directions_run_black_48dp_2x.png">
+                  <ion-checkbox > </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <button fab fab-center style="background-color:#FFD700" (click)="close()" >OK</button>
 </ion-content>

@@ -45,7 +45,6 @@ export class DataInit {
       this.categories = [];
       this.categories.push(JOURNEY);
       this.categories.push(MEAL);
-
       let ALEX: Person = new Person('Alex');
       let PETER: Person = new Person('Peter');
       let AYMEN: Person = new Person('Aymen');

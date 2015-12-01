@@ -120,8 +120,6 @@ export class Store {
         return true;
       }
 
-
-
     });
   }
 
@@ -130,4 +128,8 @@ export class Store {
     this.modal.open(MyModal);
   }
 
+close()
+{
+  this.nav.pop();
+}
 }

@@ -5,6 +5,7 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/angular2';
 
 import {New} from '../new/new';
 import {Store} from '../store/store';
+import {List} from '../list/list';
 import {Share} from '../share/share';
 import {FilterPipe} from '../pipes/filter_pipe';
 import {Category} from '../category/category';
@@ -64,11 +65,20 @@ export class Dash {
       .concat(persons[numberOfPersons - 1].name);
   }
 
-  public addShare(): void {
-    this.nav.push(Store);
+  public addStore(): void {
+    this.nav.push(List);
   }
 
+  public addShare(): void {
+    this.nav.push(New);
+  }
+
+
   public showDetail(share: Share): void {
+    this.nav.push(Detail, {share: share});
+  }
+
+  public loadMore(share: Share): void {
     this.nav.push(Detail, {share: share});
   }
 
