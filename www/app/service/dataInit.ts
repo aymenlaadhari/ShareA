@@ -16,7 +16,7 @@ export class DataInit {
     public init(): void {
       this.personDB = new PouchDB('personDB');
 
-      // this.fillWithData();
+       this.fillWithData();
 
       window.PouchDB = PouchDB;
       console.log('replicating');
