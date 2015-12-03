@@ -2,6 +2,7 @@
 
 import {Page, NavController, ViewController, Slides, IonicView, Slider} from 'ionic/ionic';
 import {Login} from '../login/login';
+import {Dash} from '../dash/dash';
 
 @Page({
   templateUrl: 'app/first/first.html'
@@ -15,9 +16,8 @@ export class First {
     this.nav = nav;
     this.view = view;
   }
-
   public login(): void {
-    this.nav.push(Login);
+    this.nav.push(Dash);
   }
 
 }

@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/angular2/angular2.d.ts" />
 import {Page, NavController, ViewController, NavParams} from 'ionic/ionic';
-import {Share} from '../share/share';
-import {Person} from '../person/person';
+import {Share} from '../model/share';
+import {Person} from '../model/person';
 import {LoginService} from '../service/login';
 import {ShareLink} from '../shareLink/shareLink';
 

@@ -1,8 +1,8 @@
 /// <reference path="../../../typings/pouchDB/pouchdb.d.ts"/>
 
-import {Share} from '../share/share';
-import {Category} from '../category/category';
-import {Person} from '../person/person';
+import {Share} from '../model/share';
+import {Category} from '../model/category';
+import {Person} from '../model/person';
 
 let PouchDB = require('pouchdb');
 

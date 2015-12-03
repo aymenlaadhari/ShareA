@@ -1,17 +1,40 @@
 <ion-navbar *navbar>
   <ion-title>Share.A</ion-title>
 </ion-navbar>
-
 <ion-content padding>
-  <ion-list>
-    <ion-input floating-label>
-      <ion-label>Titel</ion-label>
-      <input type="text" value="" />
-    </ion-input>
-    <ion-input floating-label>
-      <ion-label>Beschreibung</ion-label>
-      <input type="text" value="" />
-    </ion-input>
-  </ion-list>
-  <button block>Hinzufügen</button>
+  <div padding>
+    <ion-segment [(ng-model)]="pet">
+      <ion-segment-button  outline value="kittens">
+        Nahe
+      </ion-segment-button>
+      <ion-segment-button value="puppies">
+        Neues
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ng-switch]="pet">
+    <ion-list *ng-switch-when="'kittens'">
+      <ion-item button (click)="showDetail(share)" *ng-for="#share of filteredShares()">
+        <ion-avatar item-left>
+          <icon large [class]="share.icon"></icon>
+        </ion-avatar>
+        <h2>{{share.title}}</h2>
+        <h2>{{category._id}}</h2>
+      </ion-item>
+    </ion-list>
+    <div *ng-switch-when="'puppies'">
+    <ion-list >
+      <ion-input floating-label>
+        <ion-label>Titel</ion-label>
+        <input type="text" value="" />
+      </ion-input>
+      <ion-input floating-label>
+        <ion-label>Beschreibung</ion-label>
+        <input type="text" value="" />
+      </ion-input>
+    </ion-list>
+    <button block>Hinzufugen</button>
+  </div>
+  </div>
 </ion-content>

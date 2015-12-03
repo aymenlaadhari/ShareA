@@ -1,15 +1,15 @@
 /// <reference path="../../../typings/pouchDB/pouchdb.d.ts"/>
 
-import {Share} from '../share/share';
-import {Category} from '../category/category';
-import {Person} from '../person/person';
+import {Share} from '../model/share';
+import {Category} from '../model/category';
+import {Person} from '../model/person';
 
 let PouchDB = require('pouchdb');
 
 export class DataInit {
     private shares: Share[];
     private categories: Category[];
-    private persons: Person[];
+    private persons: Person[];  
 
     private personDB: pouchdb.promise.PouchDB;
 
@@ -21,12 +21,12 @@ export class DataInit {
       window.PouchDB = PouchDB;
       console.log('replicating');
 
-       let remoteDB: string = 'https://' +
-                             '0c63a633-7702-49d4-a122-c063734cc194-bluemix' +
+      let remoteDB: string = 'https://' +
+                             '035e0137-413b-4d3a-8273-9b6945dc3206-bluemix' +
                              ':' +
-                             '326819ff6efadaa99bb0cc4ec1e458a73850decb9e4946c0dfa2eb1ea26b92ba' +
+                             'f21458e3f0f6d1c33e30ccc93ec40c5658bf042effe24f818f38d8847f964efa' +
                              '@' +
-                             '0c63a633-7702-49d4-a122-c063734cc194-bluemix.cloudant.com/data_test';
+                             '035e0137-413b-4d3a-8273-9b6945dc3206-bluemix.cloudant.com/sample_nosql_db';
 
       PouchDB.replicate(remoteDB, 'personDB', {
         live: true,

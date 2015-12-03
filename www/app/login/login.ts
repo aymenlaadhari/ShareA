@@ -1,5 +1,5 @@
 import {Page, NavController} from 'ionic/ionic';
-import {Person} from '../model/person/person';
+import {Person} from '../model/person';
 import {DataService} from '../service/data';
 import {Dash} from '../dash/dash';
 import {Http} from 'angular2/http';

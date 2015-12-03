@@ -6,11 +6,12 @@ import {FormBuilder, Validators, ControlGroup} from 'angular2/angular2';
 import {New} from '../new/new';
 import {Store} from '../store/store';
 import {List} from '../list/list';
-import {Share} from '../share/share';
+import {StoreTest} from '../storeTest/storeTest';
+import {Share} from '../model/share';
 import {FilterPipe} from '../pipes/filter_pipe';
-import {Category} from '../category/category';
+import {Category} from '../model/category';
 import {DataService} from '../service/data';
-import {Person} from '../person/person';
+import {Person} from '../model/person';
 import {Detail} from '../detail/detail';
 import {LoginService} from '../service/login';
 
@@ -66,11 +67,11 @@ export class Dash {
   }
 
   public addStore(): void {
-    this.nav.push(List);
+    this.nav.push(StoreTest);
   }
 
-  public addShare(): void {
-    this.nav.push(New);
+  public addShare(category:Category): void {
+    this.nav.push(New,{category:category});
   }
 
 

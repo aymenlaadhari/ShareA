@@ -1,4 +1,4 @@
-import {Person} from '../person/person';
+import {Person} from '../model/person';
 
 export class LoginService {
   private person: Person;

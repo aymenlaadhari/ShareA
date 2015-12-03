@@ -1,0 +1,8 @@
+<ion-navbar *navbar>
+  <ion-searchbar [(ng-model)] = "searchQuery"></ion-searchbar>
+</ion-navbar>
+<ion-tabs tabbar-placement="bottom">
+  <ion-tab [root]="tab1Root" tab-title="List" tab-icon="list"></ion-tab>
+  <ion-tab [root]="tab2Root" tab-title="Map" tab-icon="map"></ion-tab>
+  <ion-tab [root]="tab3Root" tab-title="Neues Category" tab-icon="add"></ion-tab>
+</ion-tabs>

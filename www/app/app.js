@@ -19,7 +19,7 @@ export class ShareA {
 
   constructor(platform: Platform) {
     this.platform = platform;
-    this.root = First;
+    this.root = Login;
 
     this.initializeData();
     this.initializeApp();
