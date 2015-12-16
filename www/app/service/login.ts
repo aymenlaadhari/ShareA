@@ -1,4 +1,4 @@
-import {Person} from '../model/person';
+import {Person} from '../person/person';
 
 export class LoginService {
   private person: Person;
@@ -13,5 +13,9 @@ export class LoginService {
 
   public loggedIn(): boolean {
     return this.person !== undefined;
+  }
+
+  public personalisedName(person: Person, personalisedName: string): string {
+    return person._id === this.user()._id ? personalisedName : person.name;
   }
 }

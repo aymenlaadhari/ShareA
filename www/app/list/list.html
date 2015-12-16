@@ -1,10 +1,10 @@
 <ion-content padding>
   <ion-list>
-    <ion-item>
+    <ion-item *ng-for="#category of categories">
       <ion-thumbnail item-left>
         <ion-row>
           <ion-col>
-            <img src="img/Laufen.png" height="150" width="200">
+            <img [src]="category.imgSrc" height="150" width="200">
           </ion-col>
           <ion-col>
             <button fab class="button button-small">
@@ -13,40 +13,9 @@
           </ion-col>
             </ion-row>
       </ion-thumbnail>
-      <h2>Sport</h2>
-      <p>Teilen eine Sportaktivitat</p>
+      <h2>{{category._id}}</h2>
+      <p>{{category._id}}</p>
     </ion-item>
     <ion-item>
-      <ion-thumbnail item-left>
-        <ion-row>
-          <ion-col>
-            <img src="img/reading.jpg" height="200" width="200">
-          </ion-col>
-          <ion-col>
-            <button fab>
-              <icon add></icon>
-            </button>
-          </ion-col>
-            </ion-row>
-      </ion-thumbnail>
-      <h2>veranstaltung</h2>
-      <p>Teilen Wissenschaft</p>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-left>
-        <ion-row>
-          <ion-col>
-            <img src="img/freelance-work.png" height="150" width="200">
-          </ion-col>
-          <ion-col>
-            <button fab>
-              <icon add></icon>
-            </button>
-          </ion-col>
-            </ion-row>
-      </ion-thumbnail>
-      <h2>Ausstattung</h2>
-      <p>Teilen Ihren Dienst</p>
-    </ion-item>
   </ion-list>
 </ion-content>

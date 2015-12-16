@@ -26,25 +26,18 @@
         <ion-avatar item-left>
           <icon large [class]="share.icon"></icon>
         </ion-avatar>
-        <h2>{{share.title}} ({{share.owner.name}})</h2>
-        <p>
+        <h2>{{share.title}} ({{loginService.personalisedName(getPersonById(share.ownerId), 'Du')}})</h2>
+        <p *ng-if="share.shareWith.length > 0">
           {{share.timeFrom}} mit {{namesFrom(share.shareWith)}}
         </p>
+        <p *ng-if="share.shareWith.length == 0">
+          {{share.timeFrom}} bisher alleine – mach mit! :)
+        </p>
       </button>
-      <div class="text-center">
-        <button >
-          <icon ion-ios-arrow-down></icon>
-        </button>
-      <button (click)="addShare(category)">
-        <icon add></icon>
-      </button>
-      </div>
-
     </ion-card>
   </div>
 
 </ion-content>
-
-<button fab fab-right fab-bottom (click)="addStore()">
+<button fab fab-right fab-bottom (click)="addShare()">
   <icon add></icon>
 </button>

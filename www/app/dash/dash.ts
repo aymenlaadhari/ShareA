@@ -1,23 +1,18 @@
-/// <reference path="../../../typings/angular2/angular2.d.ts" />
-
 import {Page, NavController, ViewController} from 'ionic/ionic';
-import {FormBuilder, Validators, ControlGroup} from 'angular2/angular2';
+import {FormBuilder} from 'angular2/angular2';
 
 import {New} from '../new/new';
-import {Store} from '../store/store';
-import {List} from '../list/list';
-import {StoreTest} from '../storeTest/storeTest';
-import {Share} from '../model/share';
+import {Share} from '../share/share';
 import {FilterPipe} from '../pipes/filter_pipe';
-import {Category} from '../model/category';
+import {Category} from '../category/category';
 import {DataService} from '../service/data';
-import {Person} from '../model/person';
+import {Person} from '../person/person';
 import {Detail} from '../detail/detail';
 import {LoginService} from '../service/login';
 
 @Page({
+  pipes: [FilterPipe],
   templateUrl: 'app/dash/dash.html',
-  pipes: [FilterPipe]
 })
 export class Dash {
   public shares: Share[];
@@ -41,45 +36,60 @@ export class Dash {
     this.sharesShowing = 'all';
   }
 
+  public checkShareContainsPerson(shareWith: string[], user: Person): boolean {
+    for (var i: number = 0; i < shareWith.length; i++) {
+        if (shareWith[i] === user._id) {
+          return true;
+        }
+    }
+    return false;
+  }
+
   public filteredShares(categoryId: string, sharesShowing: string): Share[] {
     return this.shares
       .filter((share: Share) => share.category._id === categoryId)
-      .filter((share: Share) => sharesShowing === 'all' || share.shareWith.indexOf(this.loginService.user()) > -1);
+      .filter((share: Share) => sharesShowing === 'all'
+        || share.ownerId === this.loginService.user()._id //
+        || this.checkShareContainsPerson(share.shareWith, this.loginService.user()//
+      ));
   }
 
-  public namesFrom(persons: Person[]): string {
-    const numberOfPersons: number = persons.length;
-
+  public namesFrom(personIds: string[]): String {
+    const numberOfPersons: number = personIds.length;
     if (numberOfPersons < 1) {
       return '';
     }
 
     if (numberOfPersons === 1) {
-      return persons[0].name;
+      return this.loginService.personalisedName(this.dataService.getPersonWithId(personIds[0]), 'Dir');
     }
 
+    let persons: Person[] = this.getAllPersonsById(personIds);
     return persons
       .slice(0, -1)
-      .map((person: Person) => person.name)
+      .map((person: Person) => this.loginService.personalisedName(person, 'Dir'))
       .reduce((previous: string, current: string) => `${previous}, ${current}`)
       .concat(' und ')
-      .concat(persons[numberOfPersons - 1].name);
+      .concat(this.loginService.personalisedName(persons[numberOfPersons - 1], 'Dir'));
   }
 
-  public addStore(): void {
-    this.nav.push(StoreTest);
+  public getPersonById(personId: string): Person {
+    return this.dataService.getPersonWithId(personId);
   }
 
-  public addShare(category:Category): void {
-    this.nav.push(New,{category:category});
+  public getAllPersonsById(personIds: string[]): Person[] {
+    let returnPersons: Array<Person> = new Array();
+    for (var i: number = 0; i < personIds.length; i++) {
+      returnPersons.push(this.dataService.getPersonWithId(personIds[i]));
+    }
+    return returnPersons;
   }
 
+  public addShare(): void {
+    this.nav.push(New);
+  }
 
   public showDetail(share: Share): void {
-    this.nav.push(Detail, {share: share});
-  }
-
-  public loadMore(share: Share): void {
     this.nav.push(Detail, {share: share});
   }
 

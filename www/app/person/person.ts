@@ -3,7 +3,8 @@ export class Person {
   public name: string;
   public type: string = 'person';
 
-  constructor(name: string) {
+  constructor(id: string, name: string) {
+    this._id = id;
     this.name = name;
   }
 }

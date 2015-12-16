@@ -10,12 +10,32 @@
 
 $colors: (primary: #387ef5, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222);
 
+$color-app-background: #3f355a;
+
 // Ionic Sass
 // ---------------------------------
 @import 'ionic';
 
 // App Sass
 // ---------------------------------
+
+// background
+body::before {
+  background-color: $color-app-background;
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+// max width for desktop use
+ion-app {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
 
 // larger icons
 icon[large] {
@@ -26,8 +46,87 @@ icon[large] {
 .img-cropped {
   height: 100px;
   overflow: hidden;
+
+  img {
+    margin-top: -50px;
+  }
 }
 
-.img-cropped img {
-  margin-top: -50px;
+img[blur-darken] {
+  filter: blur(10px) brightness(.5);
+}
+
+.detail-header {
+  color: map-get($colors, light);
+  height: 300px;
+  margin: -20px;
+  position: relative;
+
+  img {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.detail-header-content {
+  left: 40px;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.detail-header-title {
+  font-size: 4.5rem;
+  font-weight: 100;
+}
+
+.detail-header-subtitle {
+  font-weight: 400;
+  margin-top: 2rem;
+}
+
+.detail-content-time,
+.detail-content-place {
+  clear: both;
+  font-size: 2rem;
+
+  > * {
+    vertical-align: middle;
+  }
+
+  icon {
+    display: inline-block;
+    font-size: 3rem;
+    margin-right: 2rem;
+  }
+
+  p {
+    display: inline-block;
+  }
+}
+
+.detail-content-place {
+  margin-bottom: 3rem;
+}
+
+.detail-content-description {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.detail-header-rating {
+  bottom: 30px;
+  color: orange;
+  display: inline-block;
+  font-size: 2.5rem;
+  position: absolute;
+  right: 4rem;
+  z-index: 1;
+
+  icon {
+    margin-left: 3px;
+  }
 }

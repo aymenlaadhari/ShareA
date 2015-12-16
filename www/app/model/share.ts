@@ -13,8 +13,8 @@ export class Share {
   public timeFrom: string;
   public timeUntil: string;
 
-  public owner: Person;
-  public shareWith: Person[];
+  public ownerId: string;
+  public shareWith: string[];
 
   public category: Category;
 
@@ -32,8 +32,8 @@ export class Share {
     placeTo: string,
     timeFrom: string,
     timeUntil: string,
-    owner: Person,
-    shareWith: Person[],
+    ownerId: string,
+    shareWith: string[],
     category: Category
   ) {
     this.title = title;
@@ -43,7 +43,7 @@ export class Share {
     this.placeTo = placeTo;
     this.timeFrom = timeFrom;
     this.timeUntil = timeUntil;
-    this.owner = owner;
+    this.ownerId = ownerId;
     this.shareWith = shareWith;
     this.category = category;
   }

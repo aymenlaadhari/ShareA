@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "ionic-framework": "2.0.0-alpha.33",
-    "pouchdb": "5.1.0"
+    "pouchdb": "5.1.0",
+    "qr-image": "^3.1.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -39,7 +40,7 @@
     "android",
     "browser"
   ],
-  "engines" : {
-    "node" : ">=4.2.1"
+  "engines": {
+    "node": ">=4.2.1"
   }
 }

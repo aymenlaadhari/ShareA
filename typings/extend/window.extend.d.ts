@@ -1,0 +1,3 @@
+interface Window {
+    PouchDB: any;
+}

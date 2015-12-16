@@ -1,0 +1,9 @@
+<ion-content padding>
+  <h3>Icon wählen</h3>
+  <ion-list>
+    <ion-item *ng-for="#icon of choosedCategory.icons" (click)="chooseIcon(icon)">
+      <icon large [class]="icon" item-left></icon>
+    </ion-item>
+  </ion-list>
+  <button block (click)="close()">Schließen</button>
+</ion-content>

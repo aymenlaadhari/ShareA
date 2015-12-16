@@ -1,0 +1,38 @@
+<ion-navbar *navbar>
+  <ion-title>Share.A - Share erstellen</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+  <ion-list>
+    <button clear dark (click)="chooseIcon()">Icon: <icon large [class]="newShare.icon"></icon></button>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.title">
+      <ion-label>Titel</ion-label>
+      <input type="text" [(ng-model)]="newShare.title"/>
+    </ion-input>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.description">
+      <ion-label>Beschreibung</ion-label>
+      <input type="text" [(ng-model)]="newShare.content"/>
+    </ion-input>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.starttime">
+      <ion-label>Startzeit</ion-label>
+      <input type="text" [(ng-model)]="newShare.timeFrom"/>
+    </ion-input>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.endtime">
+      <ion-label>Endzeit</ion-label>
+      <input type="text" [(ng-model)]="newShare.timeUntil"/>
+    </ion-input>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.location">
+      <ion-label>Startort</ion-label>
+      <input type="text" [(ng-model)]="newShare.placeFrom" />
+    </ion-input>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.endlocation">
+      <ion-label>Zielort</ion-label>
+      <input type="text" [(ng-model)]="newShare.placeTo"/>
+    </ion-input>
+    <ion-input floating-label *ng-if="choosedCategoryConfig.member">
+      <ion-label>Maximale Mitglieder</ion-label>
+      <input type="number" [(ng-model)]="newShare.maxmember"/>
+    </ion-input>
+  </ion-list>
+  <button block (click)="saveNewShare()">Hinzufügen</button>
+</ion-content>

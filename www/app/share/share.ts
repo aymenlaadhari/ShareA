@@ -1,6 +1,4 @@
 import {Category} from '../category/category';
-import {Person} from '../person/person';
-import {Location} from '../location/location';
 
 export class Share {
   public _id: string;
@@ -14,13 +12,12 @@ export class Share {
   public timeFrom: string;
   public timeUntil: string;
 
-  public owner: Person;
-  public shareWith: Person[];
+  public ownerId: string;
+  public shareWith: string[];
+
+  public maxmember: number;
 
   public category: Category;
-
-  public location: Location;
-
 
   public type: string = 'share';
 
@@ -36,10 +33,10 @@ export class Share {
     placeTo: string,
     timeFrom: string,
     timeUntil: string,
-    owner: Person,
-    shareWith: Person[],
+    ownerId: string,
+    shareWith: string[],
     category: Category,
-    location: Location
+    maxmember?: number
   ) {
     this.title = title;
     this.content = content;
@@ -48,9 +45,9 @@ export class Share {
     this.placeTo = placeTo;
     this.timeFrom = timeFrom;
     this.timeUntil = timeUntil;
-    this.owner = owner;
+    this.ownerId = ownerId;
     this.shareWith = shareWith;
     this.category = category;
-    this.location = location;
+    this.maxmember = maxmember;
   }
 }

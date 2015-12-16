@@ -1,23 +1,50 @@
 <ion-navbar *navbar>
   <ion-title>{{share.category.title}}</ion-title>
   <ion-nav-items secondary>
-    <button (click)="shareLink()"><icon share></icon></button>
+    <button (click)="shareLink(share)"><icon share></icon></button>
   </ion-nav-items>
 </ion-navbar>
 
+<div class="detail-header">
+  <img blur-darken [src]="share.category.imgSrc">
+  <div class="detail-header-content">
+    <h2 class="detail-header-title">{{share.title}}</h2>
+    <h3 class="detail-header-subtitle">{{loginService.personalisedName(getPersonById(share.ownerId), 'Du')}} {{with(namesFrom(share.shareWith))}}</h3>
+  </div>
+  <div class="detail-header-rating">
+    <icon *ng-for="#n of randomStars" star></icon>
+  </div>
+</div>
 <ion-content padding>
-  <h2>{{share.title}}</h2>
-  <h4>{{share.owner.name}} {{with(namesFrom(share.shareWith))}}</h4>
-  <p *ng-if="share.content">
-    {{share.content}}<br><br>
-  </p>
-  <p>
-    {{share.timeFrom}} - {{share.timeUntil}}<br>
-    {{share.placeFrom}} - {{share.placeTo}}<br>
-  </p>
+  <div class="detail-content-description" *ng-if="share.content">
+    {{share.content}}
+  </div>
+  <div class="detail-content-time">
+    <icon clock></icon>
+    <p>
+      {{share.timeFrom}} - {{share.timeUntil}}<br>
+    </p>
+  </div>
+  <div class="detail-content-place">
+    <icon map></icon>
+    <p>
+      {{share.placeFrom}} - {{share.placeTo}}<br>
+    </p>
+  </div>
 
-  <button secondary block large *ng-if="!participating()" (click)="participate()">
+  <button class="detail-content-participate" secondary block large outline *ng-if="!participating()" (click)="participate()">
     <icon person-add></icon>
     Teilnehmen
+  </button>
+  <button class="detail-content-participate" danger block large outline *ng-if="participating()" (click)="departicipate()">
+    Nicht mehr teilnehmen
+  </button>
+  <button (click)="shareLink(share)" block large outline>
+    <icon share></icon>
+    Weitersagen
+  </button>
+  <button block large outline disabled>
+    <icon star></icon>
+    Mein Favorit
   </button>
 </ion-content>
