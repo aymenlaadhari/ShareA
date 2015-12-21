@@ -24,8 +24,7 @@
       <ion-card-header>{{category.title}}</ion-card-header>
       <ion-list>
       <ion-item-sliding *ng-for="#share of filteredShares(category._id, sharesShowing)">
-        <ion-item>
-      <button (click)="showDetail(share)">
+      <button ion-item (click)="showDetail(share)">
         <ion-avatar item-left>
           <icon large [class]="share.icon"></icon>
         </ion-avatar>
@@ -37,7 +36,6 @@
           {{share.timeFrom}} bisher alleine – mach mit! :)
         </p>
       </button>
-      </ion-item>
       <ion-item-options>
       <button clear><icon star></icon>Favorieten</button>
     </ion-item-options>
