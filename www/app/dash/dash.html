@@ -22,8 +22,8 @@
         <img [src]="category.imgSrc">
       </div>
       <ion-card-header>{{category.title}}</ion-card-header>
-      <ion-item-sliding>
-      <button ion-item *ng-for="#share of filteredShares(category._id, sharesShowing)" (click)="showDetail(share)">
+      <ion-item-sliding *ng-for="#share of filteredShares(category._id, sharesShowing)">
+      <button ion-item  (click)="showDetail(share)">
         <ion-avatar item-left>
           <icon large [class]="share.icon"></icon>
         </ion-avatar>
