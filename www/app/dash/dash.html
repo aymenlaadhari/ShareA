@@ -22,7 +22,9 @@
         <img [src]="category.imgSrc">
       </div>
       <ion-card-header>{{category.title}}</ion-card-header>
+      <ion-list>
       <ion-item-sliding *ng-for="#share of filteredShares(category._id, sharesShowing)">
+        <ion-item>
       <button ion-item  (click)="showDetail(share)">
         <ion-avatar item-left>
           <icon large [class]="share.icon"></icon>
@@ -35,10 +37,12 @@
           {{share.timeFrom}} bisher alleine – mach mit! :)
         </p>
       </button>
+      </ion-item>
       <ion-item-options>
       <button danger><icon trash></icon> Delete</button>
     </ion-item-options>
     </ion-item-sliding>
+    </ion-list>
     </ion-card>
   </div>
 
