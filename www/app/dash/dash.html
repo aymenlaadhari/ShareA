@@ -25,7 +25,7 @@
       <ion-list>
       <ion-item-sliding *ng-for="#share of filteredShares(category._id, sharesShowing)">
         <ion-item>
-      <button ion-item  (click)="showDetail(share)">
+      <button (click)="showDetail(share)">
         <ion-avatar item-left>
           <icon large [class]="share.icon"></icon>
         </ion-avatar>
